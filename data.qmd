@@ -5,3 +5,9 @@ title: Data
 ## Works
 
 <iframe class="airtable-embed" src="https://airtable.com/embed/shrUEzByy0ZO3M5Zs?backgroundColor=yellowLight&layout=card&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+
+## Artists
+
+Artist data includes artist assistants and restoration artists as well as primary artists. This data includes limited information about artist gender and race/ethinicity based on individual artist names, artist statements, and other information.
+
+<iframe class="airtable-embed" src="https://airtable.com/embed/shr6lFU1EsRzaRWvg?backgroundColor=yellowLight&layout=card&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
