@@ -43,8 +43,23 @@ works <-
     wikipedia_url
   )
 
+works <-
+  works %>%
+  mutate(
+    work_type = stringr::str_extract(type, ".+(?=,)|(?<!,).+$"),
+    work_type = forcats::fct_infreq(work_type),
+    work_type = forcats::fct_lump_n(work_type, 6),
+    work_type = forcats::fct_explicit_na(work_type)
+  )
+
 works <- works %>%
   sf::st_transform(2804) %>%
+  sf::st_join(
+    dplyr::select(mapbaltimore::csas, csa = name)
+  ) %>%
+  sf::st_join(
+    dplyr::select(mapbaltimore::legislative_districts, legislative_district = name)
+  ) %>%
   sf::st_join(
     dplyr::select(mapbaltimore::neighborhoods, neighborhood = name)
   ) %>%
@@ -52,7 +67,7 @@ works <- works %>%
     dplyr::select(mapbaltimore::council_districts, council_district = name)
   ) %>%
   dplyr::relocate(
-    neighborhood, council_district,
+    neighborhood, csa, council_district, legislative_district,
     .before = location_desc
   ) %>%
   sf::st_transform(4326)

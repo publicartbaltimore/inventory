@@ -16,7 +16,16 @@ library(dplyr)
 sf::sf_use_s2(FALSE)
 
 works <- readr::read_rds(here::here("data", "works.rda"))
+
+works <-
+  dplyr::mutate(
+    works,
+    primary_artist = stringr::str_replace_all(primary_artist, ",", ", ")
+  )
+
 works_in_place <- dplyr::filter(works, status == "" | stringr::str_detect(status, "in place"))
+
+
 # works_removed <- dplyr::filter(works, !stringr::str_detect(status, "in place"))
 baltimore_city <- readr::read_rds(here::here("data", "baltimore_city.rda"))
 ```
@@ -27,16 +36,17 @@ baltimore_city <- readr::read_rds(here::here("data", "baltimore_city.rda"))
 rdeck(
   map_style = snapbox::mapbox_gallery_north_star(),
   theme = "light",
-  initial_bounds = sf::st_bbox(baltimore_city)
+  initial_bounds = sf::st_bbox(baltimore_city),
+  picking_radius = 1
 ) |>
   add_scatterplot_layer(
     data = works_in_place,
     get_position = geometry,
-    get_fill_color = "#008385",
+    get_fill_color = scale_color_category(work_type, palette = scales::brewer_pal(type = "qual", palette = "Set2"), col_label = "Type"), # "#008385",
     name = "Works",
-    radius_min_pixels = 3,
+    radius_min_pixels = 4,
     opacity = 0.6,
-    tooltip = c(title, year, primary_artist, type, medium, street_address),
+    tooltip = c(title, year, location, street_address, primary_artist, work_type, medium),
     pickable = TRUE
   )
 ```
