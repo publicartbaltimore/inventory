@@ -1,0 +1,39 @@
+---
+title: "Map"
+format:
+  html:
+    page-layout: full
+    title-block-style: none
+execute: 
+  echo: false
+---
+
+```{r}
+#| output: false
+library(rdeck)
+library(dplyr)
+
+sf::sf_use_s2(FALSE)
+
+works <- readr::read_rds(here::here("data", "works.rda"))
+baltimore_city <- readr::read_rds(here::here("data", "baltimore_city.rda"))
+```
+
+
+```{r}
+rdeck(
+  map_style = mapbox_gallery_moonlight(),
+  theme = "light",
+  initial_bounds = sf::st_bbox(baltimore_city)
+) |>
+  add_scatterplot_layer(
+    data = works,
+    get_position = geometry,
+    get_fill_color = "#008385",
+    name = "Works",
+    radius_min_pixels = 3,
+    opacity = 0.6,
+    tooltip = c(title, year, primary_artist),
+    pickable = TRUE
+  )
+```
