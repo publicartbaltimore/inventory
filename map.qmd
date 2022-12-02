@@ -18,9 +18,12 @@ sf::sf_use_s2(FALSE)
 works <- readr::read_rds(here::here("data", "works.rda"))
 
 works <-
-  dplyr::mutate(
+  mutate(
     works,
-    primary_artist = stringr::str_replace_all(primary_artist, ",", ", ")
+    across(all_of(c("title", "location", "street_address", "primary_artist", "medium")),
+           ~ stringr::str_wrap(.x, width = 35)),
+        across(all_of(c("primary_artist", "medium")),
+           ~ stringr::str_replace_all(.x, ",", ", "))
   )
 
 works_in_place <- dplyr::filter(works, status == "" | stringr::str_detect(status, "in place"))
