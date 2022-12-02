@@ -12,5 +12,12 @@
     "title": "Baltimore Public Art Inventory",
     "section": "",
     "text": "The Baltimore Public Art Inventory is a resource with information on over 1,000 murals, sculptures, mosaics, monuments, and other public artworks in and around Baltimore City, Maryland.\nThis data was created by Eli Pousson and C. Ryan Patterson based on a wide range of sources documenting Baltimore monuments and murals. Additional contributions came from staff and volunteers at Baltimore City Commission on Historical and Architectural Preservation, Baltimore Heritage, the Baltimore Office of Promotion and the Arts, and local artists and residents.\nLast updated December 2, 2022."
+  },
+  {
+    "objectID": "data.html#artists",
+    "href": "data.html#artists",
+    "title": "Data",
+    "section": "Artists",
+    "text": "Artists\nArtist data includes artist assistants and restoration artists as well as primary artists. This data includes limited information about artist gender and race/ethinicity based on individual artist names, artist statements, and other information."
   }
 ]
