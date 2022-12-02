@@ -58,3 +58,5 @@ rdeck(
     pickable = TRUE
   )
 ```
+
+Artworks that are known to be removed or destroyed are not included in this map. The map may include artworks that are no longer present but not identified as such in the inventory. Depending on available location information, the placement of map markers may be approximate or inaccurate.
