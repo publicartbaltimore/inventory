@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://publicartbaltimore.github.io/inventory/map.html</loc>
-    <lastmod>2022-12-02T03:37:17.685Z</lastmod>
+    <lastmod>2022-12-02T06:34:35.184Z</lastmod>
+  </url>
+  <url>
+    <loc>https://publicartbaltimore.github.io/inventory/LICENSE.html</loc>
+    <lastmod>2022-12-02T06:34:37.032Z</lastmod>
   </url>
   <url>
     <loc>https://publicartbaltimore.github.io/inventory/index.html</loc>
-    <lastmod>2022-12-02T03:37:19.724Z</lastmod>
+    <lastmod>2022-12-02T06:34:37.327Z</lastmod>
   </url>
   <url>
-    <loc>https://publicartbaltimore.github.io/inventory/about.html</loc>
-    <lastmod>2022-12-02T03:37:20.863Z</lastmod>
+    <loc>https://publicartbaltimore.github.io/inventory/data.html</loc>
+    <lastmod>2022-12-02T06:34:37.621Z</lastmod>
   </url>
 </urlset>
