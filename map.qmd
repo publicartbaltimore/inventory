@@ -36,7 +36,7 @@ rdeck(
     name = "Works",
     radius_min_pixels = 3,
     opacity = 0.6,
-    tooltip = c(title, year, primary_artist),
+    tooltip = c(title, year, primary_artist, type, medium, street_address),
     pickable = TRUE
   )
 ```
