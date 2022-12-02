@@ -37,7 +37,8 @@ rdeck(
   map_style = snapbox::mapbox_gallery_north_star(),
   theme = "light",
   initial_bounds = sf::st_bbox(baltimore_city),
-  picking_radius = 1
+  picking_radius = 1,
+  height = 533
 ) |>
   add_scatterplot_layer(
     data = works_in_place,
