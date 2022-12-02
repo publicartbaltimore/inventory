@@ -20,10 +20,14 @@ works <- readr::read_rds(here::here("data", "works.rda"))
 works <-
   mutate(
     works,
-    across(all_of(c("title", "location", "street_address", "primary_artist", "medium")),
-           ~ stringr::str_wrap(.x, width = 35)),
-        across(all_of(c("primary_artist", "medium")),
-           ~ stringr::str_replace_all(.x, ",", ", "))
+    across(
+      all_of(c("title", "location", "street_address", "primary_artist", "medium")),
+      ~ stringr::str_wrap(.x, width = 35)
+    ),
+    across(
+      all_of(c("primary_artist", "medium")),
+      ~ stringr::str_replace_all(.x, ",", ", ")
+    )
   )
 
 works_in_place <- dplyr::filter(works, status == "" | stringr::str_detect(status, "in place"))
