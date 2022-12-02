@@ -6,8 +6,10 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: About
+      - href: map.qmd
+        text: Map
+
 
 format:
   html:

@@ -1,5 +1,5 @@
 ---
-title: "Map"
+title: "Inventory Map"
 format:
   html:
     page-layout: full
@@ -16,18 +16,21 @@ library(dplyr)
 sf::sf_use_s2(FALSE)
 
 works <- readr::read_rds(here::here("data", "works.rda"))
+works_in_place <- dplyr::filter(works, stringr::str_detect(status, "in place"))
+# works_removed <- dplyr::filter(works, !stringr::str_detect(status, "in place"))
 baltimore_city <- readr::read_rds(here::here("data", "baltimore_city.rda"))
 ```
 
 
 ```{r}
+#| column: screen-inset-shaded
 rdeck(
-  map_style = mapbox_gallery_moonlight(),
+  map_style = snapbox::mapbox_gallery_north_star(),
   theme = "light",
   initial_bounds = sf::st_bbox(baltimore_city)
 ) |>
   add_scatterplot_layer(
-    data = works,
+    data = works_in_place,
     get_position = geometry,
     get_fill_color = "#008385",
     name = "Works",

@@ -1,11 +1,10 @@
 ## code to prepare `works` dataset goes here
-
-works <- mapbaltimore::public_art
-
+library(dplyr)
+# works <- mapbaltimore::public_art
 
 works <-
   getdata::get_location_data(
-    data = here::here("files/data", "2022-12-01_works-public.csv"),
+    data = here::here("files/data", "2022-12-02_works-public.csv"),
     from_crs = 4326,
     clean_names = TRUE
   )

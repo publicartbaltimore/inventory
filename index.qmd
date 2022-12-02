@@ -1,11 +1,11 @@
 ---
-title: "inventory"
+title: "Baltimore Public Art Inventory"
 ---
 
-This is a Quarto website.
+## About
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+The Baltimore Public Art Inventory is a resource with information on over 1,000 murals, sculptures, mosaics, monuments, and other public artworks in and around Baltimore City, Maryland.
 
-```{r}
-1 + 1
-```
+This data was created by Eli Pousson and C. Ryan Patterson based on existing documentation of Baltimore monuments and murals with additional contributions from staff and volunteers at Baltimore City Commission on Historical and Architectural Preservation, Baltimore Heritage, and the Baltimore Office of Promotion and the Arts.
+
+Last updated December 2, 2022.
