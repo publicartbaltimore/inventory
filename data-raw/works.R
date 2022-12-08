@@ -2,11 +2,13 @@
 library(dplyr)
 # works <- mapbaltimore::public_art
 
-update_date <- "2022-12-05"
+update_date <- "2022-12-08"
+
+path <- here::here("files/data", paste0(update_date, "_works-public.csv"))
 
 works <-
   getdata::get_location_data(
-    data = here::here("files/data", paste0(update_date, "_works-public.csv")),
+    data = path,
     from_crs = 4326,
     clean_names = TRUE
   )
