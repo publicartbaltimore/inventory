@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://publicartbaltimore.github.io/inventory/map.html</loc>
-    <lastmod>2023-01-18T17:01:01.625Z</lastmod>
+    <loc>https://publicartbaltimore.github.io/inventory/data.html</loc>
+    <lastmod>2023-07-21T16:37:47.443Z</lastmod>
   </url>
   <url>
     <loc>https://publicartbaltimore.github.io/inventory/LICENSE.html</loc>
-    <lastmod>2023-01-18T17:01:03.501Z</lastmod>
+    <lastmod>2023-07-21T16:37:45.320Z</lastmod>
+  </url>
+  <url>
+    <loc>https://publicartbaltimore.github.io/inventory/map.html</loc>
+    <lastmod>2023-07-21T16:37:43.238Z</lastmod>
   </url>
   <url>
     <loc>https://publicartbaltimore.github.io/inventory/index.html</loc>
-    <lastmod>2023-01-18T17:01:03.825Z</lastmod>
-  </url>
-  <url>
-    <loc>https://publicartbaltimore.github.io/inventory/data.html</loc>
-    <lastmod>2023-01-18T17:01:04.120Z</lastmod>
+    <lastmod>2023-07-21T16:37:45.609Z</lastmod>
   </url>
 </urlset>
