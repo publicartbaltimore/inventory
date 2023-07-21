@@ -2,19 +2,30 @@
 library(dplyr)
 # works <- mapbaltimore::public_art
 
-update_date <- "2023-01-18"
+url <- "https://airtable.com/apprU9l3Ca60s60Pa/tblzkmvNZcqFVsRyC/viwuTHuri6z8QJ5wV?blocks=hide"
 
-path <- here::here("files/data", paste0(update_date, "_works-public.csv"))
+token <- rairtable::get_airtable_pat(
+  default = "PUBLICART_BALTIMORE"
+)
+
+works_df <- rairtable::list_records(
+  url = url,
+  cell_format = "string",
+  token = token
+)
+
+works_sf <- works_df |>
+  janitor::clean_names() |>
+  dplyr::filter(!is.na(longitude)) |>
+  sf::st_as_sf(
+  crs = 4326,
+  na.fail = FALSE,
+  coords = c("longitude", "latitude")
+)
 
 works <-
-  getdata::get_location_data(
-    data = path,
-    from_crs = 4326,
-    clean_names = TRUE
-  )
-
-works <-
-  works %>%
+  works_sf %>%
+  janitor::clean_names() |>
   dplyr::select(
     id,
     osm_id,
@@ -44,7 +55,8 @@ works <-
     related_property,
     property_ownership,
     agency_or_insitution,
-    wikipedia_url
+    wikipedia_url,
+    geometry
   )
 
 works <-
@@ -53,7 +65,8 @@ works <-
     work_type = stringr::str_extract(type, ".+(?=,)|(?<!,).+$"),
     work_type = forcats::fct_infreq(work_type),
     work_type = forcats::fct_lump_n(work_type, 6),
-    work_type = forcats::fct_explicit_na(work_type)
+    work_type = forcats::fct_na_value_to_level(work_type)
+    # work_type = forcats::fct_explicit_na(work_type)
   )
 
 works <- works %>%
@@ -77,6 +90,10 @@ works <- works %>%
   sf::st_transform(4326)
 
 readr::write_rds(works, "data/works.rda")
+
+works_df <- sf::st_drop_geometry(works)
+
+readr::write_rds(works_df, "data/works_df.rda")
 
 baltimore_city <- mapbaltimore::baltimore_city %>%
   sf::st_transform(4326)
