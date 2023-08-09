@@ -91,7 +91,9 @@ works <- works %>%
 
 readr::write_rds(works, "data/works.rda")
 
-works_df <- sf::st_drop_geometry(works)
+works_df <- works |>
+  dplyr::arrange(dplyr::desc(year), title) |>
+  sf::st_drop_geometry()
 
 readr::write_rds(works_df, "data/works_df.rda")
 

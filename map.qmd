@@ -32,11 +32,9 @@ works <-
 
 works_in_place <- dplyr::filter(works, status == "" | stringr::str_detect(status, "in place"))
 
-
 # works_removed <- dplyr::filter(works, !stringr::str_detect(status, "in place"))
 baltimore_city <- readr::read_rds(here::here("data", "baltimore_city.rda"))
 ```
-
 
 ```{r}
 #| column: screen-inset-shaded
