@@ -91,6 +91,12 @@ works <- works %>%
 
 readr::write_rds(works, "data/works.rda")
 
+# works <- readr::read_rds("data/works.rda")
+
+sf::write_sf(works, "files/data/baltimore_public_art.gpkg")
+
+sfext::write_sf_ext(works, path = "files/data/baltimore_public_art.csv")
+
 works_df <- works |>
   dplyr::arrange(dplyr::desc(year), title) |>
   sf::st_drop_geometry()
