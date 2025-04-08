@@ -110,7 +110,7 @@ if (FALSE) {
     dplyr::arrange(dplyr::desc(year), title) |>
     sf::st_drop_geometry() |>
     readr::write_csv(
-      "Baltimore-Public-Art-Inventory_Works_2024-08-20.csv"
+      "Baltimore-Public-Art-Inventory_Works_2025-04-08.csv"
     )
 }
 

@@ -35,7 +35,20 @@ works_df |>
   select(
     all_of(c("title", "year", "primary_artist", "medium", "status", "type",  "street_address", "location", "neighborhood"))
   ) |> 
+  arrange(
+    desc(year),
+    status,
+    primary_artist
+  ) |> 
+  rename_with(
+    \(x) {
+      stringr::str_to_title(
+        stringr::str_replace(x, "_", " ")
+      )
+    }
+  ) |> 
   gt() |> 
+  sub_missing() |> 
   opt_interactive(
     use_search = TRUE,
     use_compact_mode = TRUE,
